@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free online tools: compress images, convert to PDF, resize, crop, and remove backgrounds. Fast, browser-based, no signup.">
+  <meta name="keywords" content="image compressor, pdf tool, resize image, crop image, remove background, image to pdf">
+  <title>ToolKit — Free Online Image & PDF Tools</title>
+  <!-- Google AdSense placeholder -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: #f5f9ff;
+      color: #0b1e3a;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== HEADER / NAV ===== */
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e2ecf9;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #1e4f9e;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, #1e4f9e, #3b7cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2e405e;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #1e4f9e;
+    }
+
+    .nav-cta {
+      background: #1e4f9e;
+      color: white !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(30, 79, 158, 0.25);
+    }
+
+    .nav-cta:hover {
+      background: #123b7a;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #0b1e3a;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, #1e4f9e, #3b7cff, #6ea8ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: #3e5070;
+      max-width: 640px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem 1.5rem;
+      margin-bottom: 2.5rem;
+      font-size: 0.9rem;
+      color: #3e5070;
+    }
+
+    .hero-badges span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-badges svg {
+      width: 16px;
+      height: 16px;
+      stroke: #3b7cff;
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    /* ===== AD SLOTS ===== */
+    .ad-container {
+      max-width: 1200px;
+      margin: 1.8rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .ad-box {
+      background: #f0f6fe;
+      border: 1px dashed #b9cdea;
+      border-radius: 1rem;
+      padding: 0.8rem;
+      text-align: center;
+      min-height: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #6a7c99;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .ad-box ins {
+      display: block;
+      width: 100%;
+    }
+
+    /* ===== TOOLS GRID ===== */
+    .tools-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 1rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0b1e3a;
+    }
+
+    .section-header p {
+      color: #4a5f80;
+      font-size: 0.95rem;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tool-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.8rem 1.5rem;
+      border: 1px solid #e2ecf9;
+      box-shadow: 0 8px 24px -8px rgba(20, 50, 100, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -12px rgba(30, 79, 158, 0.2);
+      border-color: #c8ddf9;
+    }
+
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #1e4f9e, #3b7cff, #8ab9ff);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .tool-card:hover::before {
+      opacity: 1;
+    }
+
+    .tool-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      background: #eef4fe;
+    }
+
+    .tool-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: #1e4f9e;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .tool-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0b1e3a;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .tool-card p {
+      font-size: 0.9rem;
+      color: #4a5f80;
+      flex: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .tool-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 0.3rem 0.8rem;
+      border-radius: 30px;
+      background: #eef4fe;
+      color: #1e4f9e;
+      align-self: flex-start;
+    }
+
+    /* Card accent colors */
+    .tool-card[data-tool="compress"] .tool-icon { background: #e3f0ff; }
+    .tool-card[data-tool="pdf"] .tool-icon { background: #ffe9e9; }
+    .tool-card[data-tool="pdf"] .tool-icon svg { stroke: #d14545; }
+    .tool-card[data-tool="resize"] .tool-icon { background: #e6f7ee; }
+    .tool-card[data-tool="resize"] .tool-icon svg { stroke: #1f9d6b; }
+    .tool-card[data-tool="crop"] .tool-icon { background: #fff4e0; }
+    .tool-card[data-tool="crop"] .tool-icon svg { stroke: #d18b1f; }
+    .tool-card[data-tool="removebg"] .tool-icon { background: #f0e6ff; }
+    .tool-card[data-tool="removebg"] .tool-icon svg { stroke: #8b5cf6; }
+    .tool-card[data-tool="img2pdf"] .tool-icon { background: #e0f2fe; }
+    .tool-card[data-tool="img2pdf"] .tool-icon svg { stroke: #0284c7; }
+
+    /* ===== FEATURES STRIP ===== */
+    .features {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding: 2rem 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    .feature-item svg {
+      width: 22px;
+      height: 22px;
+      stroke: #1e4f9e;
+      stroke-width: 2;
+      fill: none;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    .feature-item h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0b1e3a;
+    }
+
+    .feature-item p {
+      font-size: 0.85rem;
+      color: #4a5f80;
+    }
+
+    /* ===== SEO TEXT ===== */
+    .seo-section {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding: 2.5rem 1.5rem 1rem;
+      border-top: 1px solid #e2ecf9;
+    }
+
+    .seo-section h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0b1e3a;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .seo-section p {
+      color: #3e5070;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      max-width: 900px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      margin-top: auto;
+      background: #0b1e3a;
+      color: #b9cdea;
+      padding: 2.5rem 1.5rem 1.5rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      max-width: 300px;
+    }
+
+    .footer-brand .logo {
+      color: white;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-brand .logo span {
+      background: linear-gradient(135deg, #8ab9ff, #c8ddf9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      color: #9ab1d1;
+    }
+
+    .footer-links h4 {
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-links a {
+      color: #9ab1d1;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid #1e3a5f;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #7a93b8;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+      .hero {
+        padding: 2.5rem 1rem 1.5rem;
+      }
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+      .features {
+        grid-template-columns: 1fr;
+      }
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    /* Accessibility focus */
+    .tool-card:focus-visible,
+    .nav-cta:focus-visible {
+      outline: 3px solid #3b7cff;
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="nav-container">
+      <a href="/" class="logo">⚡ <span>ToolKit</span></a>
+      <nav class="nav-links">
+        <a href="#tools">Tools</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#tools" class="nav-cta">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>Every tool you need,<br><span class="gradient">right in your browser.</span></h1>
+    <p>Compress images, convert to PDF, resize, crop, and remove backgrounds — all free, private, and lightning fast.</p>
+
+    <div class="hero-badges">
+      <span>
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        100% Free
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        No Signup
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Files Never Leave Device
+      </span>
+    </div>
+  </section>
+
+  <!-- Ad slot 1 -->
+  <div class="ad-container">
+    <div class="ad-box">
+      <div>Advertisement</div>
+      <ins class="adsbygoogle"
+           style="display:block; width:100%; height:90px;"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXX"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+  <!-- ===== TOOLS GRID ===== -->
+  <section class="tools-section" id="tools">
+    <div class="section-header">
+      <div>
+        <h2>Popular Tools</h2>
+        <p>Pick a tool and start in seconds.</p>
+      </div>
+    </div>
+
+    <div class="tools-grid">
+
+      <!-- Image Compressor -->
+      <a href="/image-compressor" class="tool-card" data-tool="compress" aria-label="Open Image Compressor tool">
+  <div class="tool-icon">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="17 8 12 3 7 8"></polyline>
+      <line x1="12" y1="3" x2="12" y2="15"></line>
+    </svg>
+  </div>
+  <h3>Image Compressor</h3>
+  <p>Reduce image file size up to 80% without losing visible quality. Supports JPG, PNG, and WebP.</p>
+  <span class="tool-tag">Optimize</span>
+  <span class="card-cta">
+    Open Tool
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+  </span>
+</a>
+
+      <!-- PDF Tool -->
+     <a href="/pdf-tool" class="tool-card" data-tool="pdf" aria-label="Open PDF Tool">
+  <div class="tool-icon">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+      <polyline points="14 2 14 8 20 8"></polyline>
+      <line x1="16" y1="13" x2="8" y2="13"></line>
+      <line x1="16" y1="17" x2="8" y2="17"></line>
+    </svg>
+  </div>
+  <h3>PDF Tool</h3>
+  <p>Merge, split, compress, and convert PDF files. Everything you need to manage PDFs in one place.</p>
+  <span class="tool-tag">PDF</span>
+  <span class="card-cta">
+    Open Tool
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+  </span>
+</a>
+
+      <!-- Resize Image -->
+      <a href="/resize-image" class="tool-card" data-tool="resize" aria-label="Open Resize Image tool">
+  <div class="tool-icon">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+      <line x1="9" y1="3" x2="9" y2="21"></line>
+      <line x1="3" y1="9" x2="21" y2="9"></line>
+    </svg>
+  </div>
+  <h3>Resize Image</h3>
+  <p>Change image dimensions by pixels or percentage. Keep aspect ratio or set custom width and height.</p>
+  <span class="tool-tag">Resize</span>
+  <span class="card-cta">
+    Open Tool
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+  </span>
+</a>
+
+      <!-- Crop Image -->
+    <a href="/crop-image" class="tool-card" data-tool="crop" aria-label="Open Crop Image tool">
+  <div class="tool-icon">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6 2v14a2 2 0 0 0 2 2h14"></path>
+      <path d="M18 22V8a2 2 0 0 0-2-2H2"></path>
+    </svg>
+  </div>
+  <h3>Crop Image</h3>
+  <p>Crop images to any aspect ratio. Choose from presets or drag to select the perfect area.</p>
+  <span class="tool-tag">Crop</span>
+  <span class="card-cta">
+    Open Tool
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+  </span>
+</a>
+
+      <!-- Remove Background -->
+      <a href="/remove-background" class="tool-card" data-tool="removebg" aria-label="Open Remove Background tool">
+  <div class="tool-icon">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 2a10 10 0 0 1 0 20"></path>
+      <line x1="2" y1="12" x2="22" y2="12"></line>
+    </svg>
+  </div>
+  <h3>Remove Background</h3>
+  <p>Automatically remove image backgrounds with AI. Get clean, transparent PNGs in one click.</p>
+  <span class="tool-tag">AI Powered</span>
+  <span class="card-cta">
+    Open Tool
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+  </span>
+</a>
+      <!-- Image to PDF -->
+    <a href="/image-to-pdf" class="tool-card" data-tool="img2pdf" aria-label="Open Image to PDF tool">
+  <div class="tool-icon">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+      <polyline points="14 2 14 8 20 8"></polyline>
+      <rect x="8" y="12" width="8" height="8" rx="1"></rect>
+    </svg>
+  </div>
+  <h3>Image to PDF</h3>
+  <p>Convert JPG, PNG, and WebP images into a single PDF. Reorder, rotate, and set page size.</p>
+  <span class="tool-tag">Convert</span>
+  <span class="card-cta">
+    Open Tool
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+  </span>
+</a>
+
+    </div>
+  </section>
+
+  <!-- Ad slot 2 -->
+  <div class="ad-container">
+    <div class="ad-box">
+      <div>Advertisement</div>
+      <ins class="adsbygoogle"
+           style="display:block; width:100%; height:90px;"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXX"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features" id="features">
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      <div>
+        <h4>Privacy First</h4>
+        <p>All processing happens in your browser. Your files never touch our servers.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      <div>
+        <h4>Lightning Fast</h4>
+        <p>No uploads, no waiting. Tools run instantly on your device.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>
+      <div>
+        <h4>No Signup</h4>
+        <p>Use every tool for free, without accounts, watermarks, or limits.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+      <div>
+        <h4>Works Everywhere</h4>
+        <p>Desktop, tablet, or phone — our tools adapt to any screen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEO TEXT ===== -->
+  <section class="seo-section" id="about">
+    <h2>Free Online Image & PDF Tools</h2>
+    <p>ToolKit is a collection of fast, browser-based utilities designed to make your daily file tasks easier. Whether you need to <strong>compress images</strong> for a faster website, <strong>convert images to PDF</strong> for sharing, <strong>resize</strong> photos for social media, <strong>crop</strong> to a specific aspect ratio, or <strong>remove backgrounds</strong> for product photos — we've got you covered.</p>
+    <p>Unlike many online tools, ToolKit processes everything locally using modern web APIs. That means your files stay private, uploads are instant, and there are no hidden fees or watermarks. Bookmark this page and come back anytime — no account needed.</p>
+  </section>
+
+  <!-- Ad slot 3 -->
+  <div class="ad-container" style="margin-bottom:2rem;">
+    <div class="ad-box">
+      <div>Advertisement</div>
+      <ins class="adsbygoogle"
+           style="display:block; width:100%; height:90px;"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXX"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">⚡ <span>ToolKit</span></div>
+        <p>Free, private, browser-based tools for images and PDFs. Made for creators, developers, and everyone in between.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/image-compressor">Image Compressor</a></li>
+          <li><a href="/pdf-tool">PDF Tool</a></li>
+          <li><a href="/resize-image">Resize Image</a></li>
+          <li><a href="/crop-image">Crop Image</a></li>
+          <li><a href="/remove-background">Remove Background</a></li>
+          <li><a href="/image-to-pdf">Image to PDF</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 ToolKit. All rights reserved. Files processed locally — we never see your data.
+    </div>
+  </footer>
+
+</body>
+</html>
